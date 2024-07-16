@@ -13,7 +13,7 @@ export default function Banner() {
             tracking expenses. Experience fast, reliable, and secure digital
             payments with PayPath. Join us today!
           </p>
-          <button className="button border border-[#00eeff80]">
+          <button className="button !w-[200px] border border-[#00eeff80]">
             <span className="absolute text-gradient">Get The Card</span>
           </button>
         </div>
