@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-export default function Signup() {
+export default function Login() {
   const {
     register,
     handleSubmit,
@@ -27,7 +27,6 @@ export default function Signup() {
         </label>
         <input
           type="text"
-          placeholder="Fill the input"
           className="w-full px-4 text-gradient py-2 bg-[rgba(0,0,0,0)] mt-1 placeholder:text-[#cfb56b] border-0 outline-0 border-b border-[#fdc55d]"
           {...register("username", {
             required: "This field is required",
@@ -48,7 +47,6 @@ export default function Signup() {
         </label>
         <input
           type="password"
-          placeholder="Fill the input"
           className="w-full text-gradient px-4 py-2 bg-[rgba(0,0,0,0)] mt-1 placeholder:text-[#cfb56b] border-0 outline-0 border-b border-[#fdc55d]"
           {...register("password", {
             required: "This field is required",
@@ -67,13 +65,13 @@ export default function Signup() {
         type="submit"
         className="!w-full button !rounded-md bg-gradient-bg border-1 border-[#00f7ffa1]"
       >
-        <span className="absolute text-gradient">Signup</span>
+        <span className="absolute text-gradient">Login</span>
       </button>
       <div className="w-full">
         <small className="text-gradient">
-          I have an account!{" "}
-          <Link className="font-bold underline" to="/login">
-            Login
+          I don`t have any account!{" "}
+          <Link className="font-bold underline" to="/signup">
+            Signup
           </Link>
         </small>
       </div>

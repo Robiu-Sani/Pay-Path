@@ -5,6 +5,8 @@ import Home from "../MainComponent/Home/Home";
 import AuthRoot from "../MainComponent/Authcation/AuthRoot";
 import Login from "../MainComponent/Authcation/Login";
 import Signup from "../MainComponent/Authcation/Signup";
+import DeshboardRoot from "../Deshboard/DeshboardRoot";
+import DeshboardHome from "../Deshboard/DeshboardNav/DeshboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +31,16 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup></Signup>,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <DeshboardRoot></DeshboardRoot>,
+    children: [
+      {
+        path: "/DeshboardHome",
+        element: <DeshboardHome></DeshboardHome>,
       },
     ],
   },
