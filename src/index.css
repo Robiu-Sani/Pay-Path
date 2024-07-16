@@ -5,3 +5,64 @@
 * {
   transition: 0.5s;
 }
+.text-gradient {
+  background: linear-gradient(135deg, #c3ceb7, #cfb56b, #fdc55d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* ------------------- buttom design ----------------------  */
+.button,
+.deletButton {
+  padding: 6px;
+  border-radius: 25px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  width: 180px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.deletButton::before,
+.button::before {
+  content: "";
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 100%;
+
+  transition: 0.5s;
+}
+.deletButton::before {
+  background: rgb(196, 24, 1);
+}
+.button::before {
+  background: #00eeff80;
+  border-radius: 25px;
+}
+.deletButton:hover::before,
+.button:hover::before {
+  right: 0%;
+}
+.bannerImageStyle {
+  animation: bannerAnimation 3s infinite;
+}
+
+/* .bannerImageStyle:hover {
+  transform: scale(1.1) rotate(5deg);
+} */
+
+@keyframes bannerAnimation {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(-45%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
