@@ -1,23 +1,17 @@
+import { Outlet } from "react-router-dom";
 import bannerPhone from "../../../image/bannerPhone.png";
-export default function Banner() {
+
+export default function AuthRoot() {
   return (
     <div className="bg-gradient-bg w-full min-h-screen flex justify-center items-center pt-10 px-2 pb-5">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-10 pt-10 text-white container">
-        <div className="w-full">
-          <h1 className="text-gradient text-center text-4xl sm:text-6xl md:text-[70px] md:text-left font-bold ">
-            EMPOWER YOUR FINANCES
-          </h1>
-          <p className="text-gradient font-bold my-5 text-center md:text-left">
-            PayPath simplifies financial transactions with secure, real-time
-            payments. Manage your money effortlessly, from sending funds to
-            tracking expenses. Experience fast, reliable, and secure digital
-            payments with PayPath. Join us today!
-          </p>
-          <div className="w-full flex sm:justify-start justify-center">
+        <div className="w-full flex justify-center items-center">
+          <Outlet></Outlet>
+          {/* <div className="w-full flex sm:justify-start justify-center">
             <button className="button !w-[200px] border border-[#00eeff80]">
               <span className="absolute text-gradient">Get The Card</span>
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="w-full flex justify-between">
           <span></span>

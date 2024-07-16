@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export default function NavBar() {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full fixed">
       <div className="navbar container mx-auto">
@@ -74,7 +78,10 @@ export default function NavBar() {
           </ul>
         </div>
         <div className="navbar-end">
-          <button className="border border-[#00eeff80] button">
+          <button
+            onClick={() => navigate("/login")}
+            className="border border-[#00eeff80] button"
+          >
             <span className="absolute text-gradient">LogIn</span>
           </button>
         </div>

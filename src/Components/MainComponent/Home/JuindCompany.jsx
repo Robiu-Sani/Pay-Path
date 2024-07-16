@@ -13,24 +13,96 @@ export default function JuindCompany() {
   return (
     <div className="w-full py-5  overflow-hidden bg-slate-200">
       <Marquee>
-        <img src={logo1} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo2} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo3} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo4} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo5} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo6} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo7} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo8} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo9} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo1} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo2} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo3} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo4} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo5} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo6} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo7} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo8} alt="company logo" className="h-[50px] mx-5" />
-        <img src={logo9} alt="company logo" className="h-[50px] mx-5" />
+        <img
+          src={logo1}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo2}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo3}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo4}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo5}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo6}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo7}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo8}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo9}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo1}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo2}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo3}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo4}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo5}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo6}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo7}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo8}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
+        <img
+          src={logo9}
+          alt="company logo"
+          className="h-[20px] sm:h-[40px] md:h-[50px] mx-5"
+        />
       </Marquee>
     </div>
   );
