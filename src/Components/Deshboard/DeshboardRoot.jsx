@@ -3,6 +3,7 @@ import LeftNav from "./DeshboardNav/LeftNav";
 import { useState } from "react";
 import { IoReorderThree } from "react-icons/io5";
 import { ImCross } from "react-icons/im";
+import TopNav from "./DeshboardNav/TopNav";
 
 export default function DeshboardRoot() {
   const [callNav, setCallNev] = useState(false);
@@ -32,6 +33,7 @@ export default function DeshboardRoot() {
         <LeftNav></LeftNav>
       </div>
       <div className="w-full">
+        <TopNav></TopNav>
         <Outlet></Outlet>
       </div>
     </div>

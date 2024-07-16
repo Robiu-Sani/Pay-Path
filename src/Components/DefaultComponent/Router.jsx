@@ -6,7 +6,7 @@ import AuthRoot from "../MainComponent/Authcation/AuthRoot";
 import Login from "../MainComponent/Authcation/Login";
 import Signup from "../MainComponent/Authcation/Signup";
 import DeshboardRoot from "../Deshboard/DeshboardRoot";
-import DeshboardHome from "../Deshboard/DeshboardNav/DeshboardHome";
+import DeshboardHome from "../Deshboard/DeshboardHome/DeshboardHome";
 
 export const router = createBrowserRouter([
   {

@@ -19,7 +19,7 @@ export default function Login() {
       onSubmit={handleSubmit(onSubmit)}
       className="w-full sm:w-[400px] p-8 flex flex-col justify-center items-center gap-5"
     >
-      <h1 className="text-4xl text-gradient2 font-bold text-center">Signup</h1>
+      <h1 className="text-4xl text-gradient2 font-bold text-center">Login</h1>
 
       <div className="w-full">
         <label className="block w-full text-sm font-medium text-gradient">
