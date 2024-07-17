@@ -5,7 +5,7 @@ export default function NavBar() {
   const LogedUser = localStorage.getItem("UserLogedIn");
 
   return (
-    <div className="w-full fixed">
+    <div className="w-full fixed z-[9999]">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

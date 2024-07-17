@@ -5,7 +5,7 @@ export default function TopNav() {
     <div className="w-full p-3 bg-gradient-bg flex justify-between items-center border-[#cfb46b85] border-b">
       <span></span>
       <div className="">
-        <MdWorkHistory className="text-2xl text-gray-400" />
+        <MdWorkHistory className="text-2xl text-[#cfb56b] cursor-pointer" />
       </div>
     </div>
   );

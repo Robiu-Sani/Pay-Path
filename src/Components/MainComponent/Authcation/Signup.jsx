@@ -6,7 +6,6 @@ import Cookies from "js-cookie";
 export default function Signup() {
   const { axiosSource } = useAxiosSource();
   const navigate = useNavigate();
-  // Initialize react-hook-form
   const {
     register,
     handleSubmit,
@@ -14,22 +13,17 @@ export default function Signup() {
     formState: { errors },
   } = useForm();
 
-  // Function to handle form submission
   const onSubmit = (data) => {
     const updatedData = { ...data, status: "pending" };
     console.log(updatedData);
     axiosSource
       .post("/users", updatedData)
       .then((result) => {
-        console.log(result.data);
-        const { token } = result.data;
-        // Set token in cookies
-        Cookies.set("token", token, { expires: 1 }); // expires in 1 day
-        // user Loged in information
-        localStorage.setItem("UserLogedIn", "UserLogedIn");
-        // Reset the form only after the response
+        Cookies.set("token", result.data.token, { expires: 1 / 24 });
+        localStorage.setItem("UserLogedIn", result.data.email);
         reset();
         navigate(location.state ? location.state : "/DeshboardHome");
+        console.log(result.data);
       })
       .catch((err) => console.log(err));
   };

@@ -8,6 +8,7 @@ import Signup from "../MainComponent/Authcation/Signup";
 import DeshboardRoot from "../Deshboard/DeshboardRoot";
 import DeshboardHome from "../Deshboard/DeshboardHome/DeshboardHome";
 import Private from "./Private";
+import AllUsers from "../Deshboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,14 @@ export const router = createBrowserRouter([
         element: (
           <Private>
             <DeshboardHome></DeshboardHome>
+          </Private>
+        ),
+      },
+      {
+        path: "/Allusers",
+        element: (
+          <Private>
+            <AllUsers></AllUsers>
           </Private>
         ),
       },

@@ -15,18 +15,14 @@ export default function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data); // Log data to inspect
     axiosSource
       .post("/login", data)
       .then((result) => {
-        const { token } = result.data;
-        // Set token in cookies
-        Cookies.set("token", token, { expires: 1 }); // expires in 1 day
-        // user Loged in information
-        localStorage.setItem("UserLogedIn", "UserLogedIn");
-        // Reset the form only after the response
+        Cookies.set("token", result.data.token, { expires: 1 / 24 });
+        localStorage.setItem("UserLogedIn", result.data.email);
         reset();
         navigate(location.state ? location.state : "/DeshboardHome");
+        console.log(result.data);
       })
       .catch((err) => console.log(err));
   };
@@ -38,19 +34,24 @@ export default function Login() {
     >
       <h1 className="text-4xl text-gradient2 font-bold text-center">Login</h1>
 
+      {/* Email field */}
       <div className="w-full">
         <label className="block w-full text-sm font-medium text-gradient">
-          Mobile Number or Email
+          Your email
         </label>
         <input
-          type="text"
-          className="w-full px-4 text-gradient py-2 bg-[rgba(0,0,0,0)] mt-1 placeholder:text-[#cfb56b] border-0 outline-0 border-b border-[#fdc55d]"
-          {...register("username", {
-            required: "This field is required",
+          type="email"
+          className="w-full px-4 text-gradient py-2 bg-[rgba(0,0,0,0)] placeholder:text-[#cfb56b] border-0 outline-0 border-b border-[#fdc55d]"
+          {...register("email", {
+            required: "Email is required",
+            pattern: {
+              value: /^\S+@\S+\.\S+$/,
+              message: "Invalid email address",
+            },
           })}
         />
-        {errors.username && (
-          <p className="text-red-500 text-sm mt-1">{errors.username.message}</p>
+        {errors.email && (
+          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
         )}
       </div>
 
