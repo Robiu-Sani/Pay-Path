@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAxiosSource from "../../CustomHooks/useAxiousSorce";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 export default function Signup() {
   const { axiosSource } = useAxiosSource();
@@ -17,9 +17,9 @@ export default function Signup() {
     const updatedData = { ...data, status: "pending" };
     console.log(updatedData);
     axiosSource
-      .post("/users", updatedData)
+      .post("/users", updatedData, { withCredentials: true })
       .then((result) => {
-        Cookies.set("token", result.data.token, { expires: 1 / 24 });
+        // Cookies.set("token", result.data.token, { expires: 1 / 24 });
         localStorage.setItem("UserLogedIn", result.data.email);
         reset();
         navigate(location.state ? location.state : "/DeshboardHome");
