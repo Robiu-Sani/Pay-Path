@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import useAxiosSource from "../../CustomHooks/useAxiousSorce";
+import Cookies from "js-cookie";
 
 export default function Signup() {
+  const { axiosSource } = useAxiosSource();
   // Initialize react-hook-form
   const {
     register,
@@ -12,8 +15,21 @@ export default function Signup() {
 
   // Function to handle form submission
   const onSubmit = (data) => {
-    console.log(data);
-    reset();
+    const updatedData = { ...data, status: "pending" };
+    console.log(updatedData);
+    axiosSource
+      .post("/users", updatedData)
+      .then((result) => {
+        console.log(result.data);
+        const { token } = result.data;
+        // Set token in cookies
+        Cookies.set("token", token, { expires: 1 }); // expires in 1 day
+        // user Loged in information
+        localStorage.setItem("UserLogedIn", "UserLogedIn");
+        // Reset the form only after the response
+        reset();
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -69,10 +85,6 @@ export default function Signup() {
           className="w-full px-4 text-gradient py-2 bg-[rgba(0,0,0,0)] placeholder:text-[#cfb56b] border-0 outline-0 border-b border-[#fdc55d]"
           {...register("number", {
             required: "Mobile number is required",
-            pattern: {
-              value: /^\d{10}$/,
-              message: "Invalid mobile number, must be 10 digits",
-            },
           })}
         />
         {errors.number && (

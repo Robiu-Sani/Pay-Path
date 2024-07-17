@@ -4,6 +4,7 @@ import cashout from "../../../image/cashout.png";
 import cashin from "../../../image/cash-in.png";
 import BalanceInquiry from "../../../image/Balance Inquiry.webp";
 import TransactionsHistory from "../../../image/TransactionsHistory.webp";
+import card from "../../../image/card.png";
 
 export default function DeshboardHome() {
   return (
@@ -24,22 +25,7 @@ export default function DeshboardHome() {
         className="w-full grid gap-4"
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}
       >
-        <div className="w-full bg-gradient-bg p-4 cursor-pointer border-[#cfb46b85] border flex items-center gap-5 rounded-md">
-          <img
-            src={TransactionsHistory}
-            alt="send money"
-            className="h-[100px]"
-          />
-          <div className="">
-            <h1 className="text-2xl text-gradient font-bold">
-              Transactions History
-            </h1>
-            <p className="text-gradient text-sm">
-              Monitor Your Money: The Importance of Transaction History
-            </p>
-          </div>
-        </div>
-        <div className="w-full bg-gradient-bg p-4 cursor-pointer border-[#cfb46b85] border flex items-center gap-5 rounded-md">
+        <div className="w-full bg-gradient-bg p-4 cursor-pointer  hover:scale-105 border-[#cfb46b85] border flex items-center gap-5 rounded-md">
           <img src={sendmoney} alt="send money" className="h-[100px]" />
           <div className="">
             <h1 className="text-2xl text-gradient font-bold">Send Money</h1>
@@ -48,7 +34,7 @@ export default function DeshboardHome() {
             </p>
           </div>
         </div>
-        <div className="w-full bg-gradient-bg p-4 cursor-pointer border-[#cfb46b85] border flex items-center gap-5 rounded-md">
+        <div className="w-full bg-gradient-bg p-4 cursor-pointer  hover:scale-105 border-[#cfb46b85] border flex items-center gap-5 rounded-md">
           <img src={cashout} alt="send money" className="h-[100px]" />
           <div className="">
             <h1 className="text-2xl text-gradient font-bold">Cash out</h1>
@@ -57,7 +43,7 @@ export default function DeshboardHome() {
             </p>
           </div>
         </div>
-        <div className="w-full bg-gradient-bg p-4 cursor-pointer border-[#cfb46b85] border flex items-center gap-5 rounded-md">
+        <div className="w-full bg-gradient-bg p-4 cursor-pointer  hover:scale-105 border-[#cfb46b85] border flex items-center gap-5 rounded-md">
           <img src={cashin} alt="send money" className="h-[100px]" />
           <div className="">
             <h1 className="text-2xl text-gradient font-bold">Cash-In</h1>
@@ -66,7 +52,7 @@ export default function DeshboardHome() {
             </p>
           </div>
         </div>
-        <div className="w-full bg-gradient-bg p-4 cursor-pointer border-[#cfb46b85] border flex items-center gap-5 rounded-md">
+        <div className="w-full bg-gradient-bg p-4 cursor-pointer  hover:scale-105 border-[#cfb46b85] border flex items-center gap-5 rounded-md">
           <img src={BalanceInquiry} alt="send money" className="h-[100px]" />
           <div className="">
             <h1 className="text-2xl text-gradient font-bold">
@@ -77,7 +63,7 @@ export default function DeshboardHome() {
             </p>
           </div>
         </div>
-        <div className="w-full bg-gradient-bg p-4 cursor-pointer border-[#cfb46b85] border flex items-center gap-5 rounded-md">
+        <div className="w-full bg-gradient-bg p-4 cursor-pointer  hover:scale-105 border-[#cfb46b85] border flex items-center gap-5 rounded-md">
           <img
             src={TransactionsHistory}
             alt="send money"
@@ -89,6 +75,15 @@ export default function DeshboardHome() {
             </h1>
             <p className="text-gradient text-sm">
               Monitor Your Money: The Importance of Transaction History
+            </p>
+          </div>
+        </div>
+        <div className="w-full bg-gradient-bg p-4 cursor-pointer  hover:scale-105 border-[#cfb46b85] border flex items-center gap-5 rounded-md">
+          <img src={card} alt="send money" className="h-[100px]" />
+          <div className="">
+            <h1 className="text-2xl text-gradient font-bold">Get the card</h1>
+            <p className="text-gradient text-sm">
+              Managing Your Card: Best Practices for Security and Convenience
             </p>
           </div>
         </div>
