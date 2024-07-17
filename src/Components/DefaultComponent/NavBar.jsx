@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
   const navigate = useNavigate();
+  const LogedUser = localStorage.getItem("UserLogedIn");
 
   return (
     <div className="w-full fixed">
@@ -79,13 +80,18 @@ export default function NavBar() {
         </div>
         <div className="navbar-end">
           <button
-            onClick={() => navigate("/login")}
-            className="border border-[#00eeff80] button"
+            onClick={() => navigate("/DeshboardHome")}
+            className={`border ${
+              LogedUser ? " !w-[120px]" : ""
+            } border-[#00eeff80] button`}
           >
-            <span className="absolute text-gradient">LogIn</span>
+            <span className="absolute text-gradient">
+              {LogedUser ? "DeshBoard" : "LogIn"}
+            </span>
           </button>
         </div>
       </div>
     </div>
   );
 }
+// LogedUser

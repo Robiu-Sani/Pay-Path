@@ -1,7 +1,12 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import useAxiosSource from "../../CustomHooks/useAxiousSorce";
 
 export default function Login() {
+  const { axiosSource } = useAxiosSource();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -10,8 +15,20 @@ export default function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    reset();
+    console.log(data); // Log data to inspect
+    axiosSource
+      .post("/login", data)
+      .then((result) => {
+        const { token } = result.data;
+        // Set token in cookies
+        Cookies.set("token", token, { expires: 1 }); // expires in 1 day
+        // user Loged in information
+        localStorage.setItem("UserLogedIn", "UserLogedIn");
+        // Reset the form only after the response
+        reset();
+        navigate(location.state ? location.state : "/DeshboardHome");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -30,10 +47,6 @@ export default function Login() {
           className="w-full px-4 text-gradient py-2 bg-[rgba(0,0,0,0)] mt-1 placeholder:text-[#cfb56b] border-0 outline-0 border-b border-[#fdc55d]"
           {...register("username", {
             required: "This field is required",
-            pattern: {
-              value: /^(?:\d{10}|\S+@\S+\.\S+)$/,
-              message: "Must be a valid email or 10-digit mobile number",
-            },
           })}
         />
         {errors.username && (

@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAxiosSource from "../../CustomHooks/useAxiousSorce";
 import Cookies from "js-cookie";
 
 export default function Signup() {
   const { axiosSource } = useAxiosSource();
+  const navigate = useNavigate();
   // Initialize react-hook-form
   const {
     register,
@@ -28,6 +29,7 @@ export default function Signup() {
         localStorage.setItem("UserLogedIn", "UserLogedIn");
         // Reset the form only after the response
         reset();
+        navigate(location.state ? location.state : "/DeshboardHome");
       })
       .catch((err) => console.log(err));
   };

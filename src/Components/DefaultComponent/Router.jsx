@@ -7,6 +7,7 @@ import Login from "../MainComponent/Authcation/Login";
 import Signup from "../MainComponent/Authcation/Signup";
 import DeshboardRoot from "../Deshboard/DeshboardRoot";
 import DeshboardHome from "../Deshboard/DeshboardHome/DeshboardHome";
+import Private from "./Private";
 
 export const router = createBrowserRouter([
   {
@@ -40,7 +41,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/DeshboardHome",
-        element: <DeshboardHome></DeshboardHome>,
+        element: (
+          <Private>
+            <DeshboardHome></DeshboardHome>
+          </Private>
+        ),
       },
     ],
   },
