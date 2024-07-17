@@ -9,6 +9,12 @@ import DeshboardRoot from "../Deshboard/DeshboardRoot";
 import DeshboardHome from "../Deshboard/DeshboardHome/DeshboardHome";
 import Private from "./Private";
 import AllUsers from "../Deshboard/AllUsers/AllUsers";
+import GetTheCard from "../Deshboard/GetTheCard/GetTheCard";
+import BalanceHistory from "../Deshboard/BalanceHistory/BalanceHistory";
+import BalanceInquiry from "../Deshboard/BalanceInquiry/BalanceInquiry";
+import CashIn from "../Deshboard/CashIn/CashIn";
+import CashOut from "../Deshboard/CashOut/CashOut";
+import SendMoney from "../Deshboard/SendMoney/SendMoney";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +51,54 @@ export const router = createBrowserRouter([
         element: (
           <Private>
             <DeshboardHome></DeshboardHome>
+          </Private>
+        ),
+      },
+      {
+        path: "/send_money",
+        element: (
+          <Private>
+            <SendMoney></SendMoney>
+          </Private>
+        ),
+      },
+      {
+        path: "/cash_out",
+        element: (
+          <Private>
+            <CashOut></CashOut>
+          </Private>
+        ),
+      },
+      {
+        path: "/cash_in",
+        element: (
+          <Private>
+            <CashIn></CashIn>
+          </Private>
+        ),
+      },
+      {
+        path: "/balance_inquiry",
+        element: (
+          <Private>
+            <BalanceInquiry></BalanceInquiry>
+          </Private>
+        ),
+      },
+      {
+        path: "/balance_history",
+        element: (
+          <Private>
+            <BalanceHistory></BalanceHistory>
+          </Private>
+        ),
+      },
+      {
+        path: "/get_the_card",
+        element: (
+          <Private>
+            <GetTheCard></GetTheCard>
           </Private>
         ),
       },

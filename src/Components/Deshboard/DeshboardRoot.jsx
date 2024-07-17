@@ -8,7 +8,7 @@ import TopNav from "./DeshboardNav/TopNav";
 export default function DeshboardRoot() {
   const [callNav, setCallNev] = useState(false);
   return (
-    <div className="w-full h-screen bg-gradient-bg flex relative">
+    <div className="w-full h-screen overflow-hidden bg-gradient-bg flex relative">
       {callNav ? null : (
         <div
           onClick={() => setCallNev(!callNav)}
@@ -25,7 +25,7 @@ export default function DeshboardRoot() {
         {callNav ? (
           <div
             onClick={() => setCallNev(!callNav)}
-            className={`flex justify-center items-center w-[30px] h-[30px]  sm:hidden absolute top-2 right-2`}
+            className={`flex justify-center items-center z-50 w-[30px] h-[30px]  sm:hidden absolute top-2 right-2`}
           >
             <ImCross className="text-xl text-white " />
           </div>
