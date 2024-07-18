@@ -16,7 +16,7 @@ export default function Login() {
 
   const onSubmit = (data) => {
     axiosSource
-      .post("/login", data, { withCredentials: true })
+      .post("/login", data)
       .then((result) => {
         // Cookies.set("token", result.data.token, { expires: 1 / 24 });
         localStorage.setItem("UserLogedIn", result.data.email);

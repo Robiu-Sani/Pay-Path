@@ -5,6 +5,9 @@
 * {
   transition: 0.5s;
 }
+.scrollNone::-webkit-scrollbar {
+  display: none;
+}
 .text-gradient {
   background: linear-gradient(135deg, #c3ceb7, #cfb56b, #fdc55d);
   -webkit-background-clip: text;

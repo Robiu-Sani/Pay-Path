@@ -5,7 +5,7 @@ export default function TopNav() {
   const [callHistory, setCallHistory] = useState(false);
   const [checkBalance, setCheckBalance] = useState(false);
   return (
-    <div className="w-full p-3 bg-gradient-bg flex justify-between items-center border-[#cfb46b85] border-b">
+    <div className="w-full  p-3 bg-gradient-bg flex justify-between items-center border-[#cfb46b85] border-b">
       <span className="text-gradient ml-7 font-bold">Pay Path</span>
       <div
         onClick={() => setCheckBalance(!checkBalance)}

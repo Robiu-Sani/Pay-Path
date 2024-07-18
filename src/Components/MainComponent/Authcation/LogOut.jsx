@@ -12,12 +12,14 @@ export default function LogOut() {
   };
 
   return (
-    <div
-      className="w-full absolute bottom-0 h-[50px] text-gradient rounded-md font-bold p-3 flex justify-center items-center gap-2 cursor-pointer border-[#cfb46b85] border bg-gradient-bg"
-      onClick={HandleLogOut}
-    >
-      <img src={logout} alt="logout image" className="h-[40px]" />
-      LogOut
+    <div className="w-[190px] fixed left-3 bottom-3 rounded-md h-[50px] flex justify-center items-center cursor-pointer border-[#cfb46b85] border bg-gradient-bg">
+      <button
+        className="w-full  text-gradient  font-bold p-3 flex justify-center items-center gap-2 "
+        onClick={HandleLogOut}
+      >
+        <img src={logout} alt="logout image" className="h-[40px]" />
+        LogOut
+      </button>
     </div>
   );
 }

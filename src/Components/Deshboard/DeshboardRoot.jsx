@@ -18,9 +18,9 @@ export default function DeshboardRoot() {
         </div>
       )}
       <div
-        className={`w-[250px] bg-gradient-bg p-3 absolute sm:static border-[#cfb46b85] shadow top-0 ${
+        className={`w-[250px] bg-gradient-bg p-3 overflow-y-auto z-[99999] absolute sm:static border-[#cfb46b85] shadow top-0 ${
           callNav ? "left-0" : "-left-[250px]"
-        } h-screen border-r overflow-y-auto`}
+        } h-screen border-r`}
       >
         {callNav ? (
           <div

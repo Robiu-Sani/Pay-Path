@@ -6,13 +6,17 @@ import BalanceInquiry from "../../../image/Balance Inquiry.webp";
 import TransactionsHistory from "../../../image/TransactionsHistory.webp";
 import card from "../../../image/card.png";
 import { useNavigate } from "react-router-dom";
+import DeshboardBAnner from "../../SheaireComponent/DeshboardBAnner";
 
 export default function DeshboardHome() {
   const navigate = useNavigate();
   return (
-    <div className="w-full overflow-y-auto  max-h-[calc(100vh-50px)] p-4 ">
+    <div className="w-full !scrollNone overflow-y-auto  max-h-[calc(100vh-50px)] p-4 ">
+      <div className="w-full">
+        <DeshboardBAnner></DeshboardBAnner>
+      </div>
       <div
-        className="w-full grid gap-4"
+        className="max-w-full grid gap-4"
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}
       >
         <div

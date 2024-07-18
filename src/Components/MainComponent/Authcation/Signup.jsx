@@ -17,7 +17,7 @@ export default function Signup() {
     const updatedData = { ...data, status: "pending" };
     console.log(updatedData);
     axiosSource
-      .post("/users", updatedData, { withCredentials: true })
+      .post("/users", updatedData)
       .then((result) => {
         // Cookies.set("token", result.data.token, { expires: 1 / 24 });
         localStorage.setItem("UserLogedIn", result.data.email);
