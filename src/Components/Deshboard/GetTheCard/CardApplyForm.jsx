@@ -1,11 +1,6 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import useAxiosSource from "../../CustomHooks/useAxiousSorce";
 
-export default function Login() {
-  const { axiosSource } = useAxiosSource();
-  const navigate = useNavigate();
-
+export default function CardApplyForm() {
   const {
     register,
     handleSubmit,
@@ -14,15 +9,8 @@ export default function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
-    axiosSource
-      .post("/login", data)
-      .then((result) => {
-        localStorage.setItem("UserLogedIn", result.data.email);
-        reset();
-        navigate(location.state ? location.state : "/DeshboardHome");
-        console.log(result.data);
-      })
-      .catch((err) => console.log(err));
+    console.log(data);
+    reset();
   };
 
   return (
@@ -30,8 +18,6 @@ export default function Login() {
       onSubmit={handleSubmit(onSubmit)}
       className="w-full sm:w-[400px] p-8 flex flex-col justify-center items-center gap-5"
     >
-      <h1 className="text-4xl text-gradient2 font-bold text-center">Login</h1>
-
       {/* Email field */}
       <div className="w-full">
         <label className="block w-full text-sm font-medium text-gradient">
@@ -75,18 +61,10 @@ export default function Login() {
 
       <button
         type="submit"
-        className="!w-full button !rounded-md bg-gradient-bg border-1 border-[#00f7ffa1]"
+        className="!w-full button !rounded-md bg-gradient-bg border-1 border-[#00f7ffa1] relative"
       >
-        <span className="absolute text-gradient">Login</span>
+        <span className="absolute text-gradient">Apply for Card</span>
       </button>
-      <div className="w-full">
-        <small className="text-gradient">
-          I don`t have any account!{" "}
-          <Link className="font-bold underline" to="/signup">
-            Signup
-          </Link>
-        </small>
-      </div>
     </form>
   );
 }
