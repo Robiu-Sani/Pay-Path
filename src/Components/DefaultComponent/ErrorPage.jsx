@@ -9,10 +9,10 @@ export default function ErrorPage() {
     <div className="w-full min-h-screen bg-gradient-bg flex justify-center items-center p-2 relative">
       <div className="flex flex-col justify-center items-center">
         <TbError404 className="text-[150px] text-red-600" />
-        <span className="text-5xl text-center text-gradient2 font-bold my-5 flex gap-5">
+        <span className="text-5xl text-center text-gradient2 uppercase font-bold my-5 flex gap-5">
           <BiSolidError className="text-red-800" /> Your Page is Not Found
         </span>
-        <small className="text-center text-gradient">
+        <small className="text-center text-gradient ">
           From this page! you can not do anythig whatever you want. Thatswhy you
           must have to go home page{" "}
         </small>

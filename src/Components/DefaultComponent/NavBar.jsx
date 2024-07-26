@@ -1,8 +1,25 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function NavBar() {
   const navigate = useNavigate();
   const LogedUser = localStorage.getItem("UserLogedIn");
+
+  const navitems = (
+    <>
+      <li className="text-gradient drop-shadow font-bold">
+        <Link to="/">Home</Link>
+      </li>
+      <li className="text-gradient drop-shadow font-bold">
+        <Link to="/about">About</Link>
+      </li>
+      <li className="text-gradient drop-shadow font-bold">
+        <Link to="/services">Services</Link>
+      </li>
+      <li className="text-gradient drop-shadow font-bold">
+        <Link to="/contact">Contact</Link>
+      </li>
+    </>
+  );
 
   return (
     <div className="w-full fixed z-[9999]">
@@ -12,7 +29,7 @@ export default function NavBar() {
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 text-[#cfb56b]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -27,25 +44,9 @@ export default function NavBar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm  dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm  dropdown-content bg-gradient-bg border border-[#cfb46b73] rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {navitems}
             </ul>
           </div>
           <div className="relative">
@@ -56,27 +57,7 @@ export default function NavBar() {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal  px-1">
-            <li className="text-gradient drop-shadow font-bold">
-              <a>Item 1</a>
-            </li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
+          <ul className="menu menu-horizontal  px-1">{navitems}</ul>
         </div>
         <div className="navbar-end">
           <button

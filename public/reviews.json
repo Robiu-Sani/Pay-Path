@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "1",
+    "name": "Jane Doe",
+    "details": "The building management team is responsible for maintaining the overall condition of the building, including regular inspections, repairs, and ensuring compliance with safety regulations."
+  },
+  {
+    "_id": "2",
+    "name": "John Doe",
+    "details": "Our team coordinates with various contractors for maintenance work, including plumbing, electrical systems, and HVAC. We ensure timely interventions to prevent major issues."
+  },
+  {
+    "_id": "3",
+    "name": "MJ Doe",
+    "details": "Building management handles tenant communications, addressing any concerns or issues promptly. We strive to maintain a high standard of living for all residents."
+  },
+  {
+    "_id": "4",
+    "name": "Sarah Smith",
+    "details": "Security is a top priority for our building management. We have implemented 24/7 surveillance and employ a professional security team to ensure the safety of all occupants."
+  },
+  {
+    "_id": "5",
+    "name": "Robert Johnson",
+    "details": "We focus on sustainability by incorporating energy-efficient systems and practices. Regular audits are conducted to optimize energy usage and reduce the building's carbon footprint."
+  },
+  {
+    "_id": "6",
+    "name": "Emily Davis",
+    "details": "Our building management team handles all financial aspects, including budgeting, rent collection, and expense management. Transparency and accountability are key principles in our operations."
+  },
+  {
+    "_id": "7",
+    "name": "Michael Brown",
+    "details": "We organize regular community events to foster a sense of community among residents. These events range from social gatherings to informational seminars on various topics."
+  },
+  {
+    "_id": "8",
+    "name": "Jessica Wilson",
+    "details": "The cleaning and sanitation of common areas are maintained at the highest standards. Our team ensures these areas are clean and hygienic, enhancing the living environment for everyone."
+  },
+  {
+    "_id": "9",
+    "name": "David Lee",
+    "details": "Our building management is committed to emergency preparedness. We have detailed plans and regular drills to ensure residents know how to respond in case of emergencies."
+  },
+  {
+    "_id": "10",
+    "name": "Linda Martinez",
+    "details": "We offer various amenities such as a gym, swimming pool, and community hall. Our management ensures these facilities are well-maintained and accessible to all residents."
+  }
+]

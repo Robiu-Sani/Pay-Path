@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { MdWorkHistory } from "react-icons/md";
+import { FaHistory } from "react-icons/fa";
+import { MdArrowBack, MdWorkHistory } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 export default function TopNav() {
   const [callHistory, setCallHistory] = useState(false);
   const [checkBalance, setCheckBalance] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="w-full  p-3 bg-gradient-bg flex justify-between items-center border-[#cfb46b85] border-b">
       <span className="text-gradient ml-7 font-bold">Pay Path</span>
@@ -21,7 +24,11 @@ export default function TopNav() {
           <div className="w-[19px] h-[19px] rounded-full bg-[#cfb56b] absolute right-[2px]"></div>
         </div>
       </div>
-      <div className="">
+      <div className="flex gap-5">
+        <MdArrowBack
+          onClick={() => navigate("/")}
+          className="text-2xl text-[#cfb56b] cursor-pointer"
+        />
         <MdWorkHistory
           onClick={() => setCallHistory(!callHistory)}
           className="text-2xl text-[#cfb56b] cursor-pointer"
@@ -31,7 +38,12 @@ export default function TopNav() {
         className={`w-[calc(100%-16px)] rounded-md bg-gradient-bg overscroll-y-auto border-[#cfb46b85]  z-20 sm:w-[400px] h-[calc(100vh-68px)] border absolute top-[60px] ${
           callHistory ? "right-2" : "-right-[105%]"
         }`}
-      ></div>
+      >
+        <div className="w-full border-[#cfb46b85] border-b p-2 flex justify-start items-center">
+          <FaHistory className="text-[#cfb56b] text-xl mr-3" />
+          <span className="text-gradient font-bold">History</span>
+        </div>
+      </div>
     </div>
   );
 }

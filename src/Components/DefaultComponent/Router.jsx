@@ -15,6 +15,9 @@ import BalanceInquiry from "../Deshboard/BalanceInquiry/BalanceInquiry";
 import CashIn from "../Deshboard/CashIn/CashIn";
 import CashOut from "../Deshboard/CashOut/CashOut";
 import SendMoney from "../Deshboard/SendMoney/SendMoney";
+import About from "../MainComponent/About/About";
+import Services from "../MainComponent/Services/Services";
+import Contact from "../MainComponent/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +28,18 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/services",
+        element: <Services></Services>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
     ],
   },
