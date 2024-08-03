@@ -3,6 +3,7 @@ import LogOut from "../../MainComponent/Authcation/LogOut";
 import { FaBalanceScale, FaCcMastercard, FaHome } from "react-icons/fa";
 import { GiCash, GiMoneyStack, GiTakeMyMoney } from "react-icons/gi";
 import { MdOutlineHistoryEdu } from "react-icons/md";
+import { FaUsersBetweenLines } from "react-icons/fa6";
 
 export default function LeftNav() {
   const navigate = useNavigate();
@@ -59,10 +60,17 @@ export default function LeftNav() {
         </button>
         <button
           onClick={() => navigate("/get_the_card")}
-          className="flex hover:pl-4 mb-20 justify-start items-center gap-2 font-bold p-2 border text-left text-md rounded-md border-[#cfb46b1e] w-full text-gradient "
+          className="flex hover:pl-4 justify-start items-center gap-2 font-bold p-2 border text-left text-md rounded-md border-[#cfb46b1e] mb-1 w-full text-gradient "
         >
           <FaCcMastercard className="text-[#cfb56b]" />
           Get Card
+        </button>
+        <button
+          onClick={() => navigate("/Allusers")}
+          className="flex hover:pl-4 mb-20 justify-start items-center gap-2 font-bold p-2 border text-left text-md rounded-md border-[#cfb46b1e] w-full text-gradient "
+        >
+          <FaUsersBetweenLines className="text-[#cfb56b]" />
+          All Users
         </button>
       </div>
       <LogOut></LogOut>

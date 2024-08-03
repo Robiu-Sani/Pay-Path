@@ -14,7 +14,7 @@ export default function Signup() {
   } = useForm();
 
   const onSubmit = (data) => {
-    const updatedData = { ...data, status: "pending" };
+    const updatedData = { ...data, status: "user", balance: 100 };
     console.log(updatedData);
     axiosSource
       .post("/users", updatedData)
