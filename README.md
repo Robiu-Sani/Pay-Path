@@ -1,8 +1,27 @@
-# React + Vite
+Your full name
+Admin
+Your email
+admin@gmail.com
+Your number
+01111111111
+Enter 5-Digit Pin
+00000
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Your full name
+Agent
+Your email
+agent@gmail.com
+Your number
+00000000001
+Enter 5-Digit Pin
+11111
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Your full name
+Agent2
+Your email
+agent2@gmail.com
+Your number
+00000000002
+Enter 5-Digit Pin
+22222
