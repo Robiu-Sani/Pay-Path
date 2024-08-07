@@ -5,6 +5,8 @@ import OurCommitment from "./OurCommitment";
 import OurVision from "./OurVision";
 import OurCompanys from "./OurCompanys";
 import OurTeam from "./OurTeam";
+import FAQ from "./FAQ";
+import OurServices from "./OurServices";
 
 export default function About() {
   return (
@@ -29,6 +31,8 @@ export default function About() {
       <OurVision></OurVision>
       <OurCompanys></OurCompanys>
       <OurTeam></OurTeam>
+      <OurServices></OurServices>
+      <FAQ></FAQ>
       <JuinCard></JuinCard>
     </div>
   );

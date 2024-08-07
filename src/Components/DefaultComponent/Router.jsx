@@ -18,6 +18,7 @@ import SendMoney from "../Deshboard/SendMoney/SendMoney";
 import About from "../MainComponent/About/About";
 import Services from "../MainComponent/Services/Services";
 import Contact from "../MainComponent/Contact/Contact";
+import AllAgent from "../Deshboard/AllAgent/AllAgent";
 
 export const router = createBrowserRouter([
   {
@@ -122,6 +123,14 @@ export const router = createBrowserRouter([
         element: (
           <Private>
             <AllUsers></AllUsers>
+          </Private>
+        ),
+      },
+      {
+        path: "/AllAgents",
+        element: (
+          <Private>
+            <AllAgent></AllAgent>
           </Private>
         ),
       },

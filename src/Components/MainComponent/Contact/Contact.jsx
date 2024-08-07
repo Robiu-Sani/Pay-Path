@@ -2,6 +2,10 @@ import JuindCompany from "../Home/JuindCompany";
 import image from "../../../image/Balance Inquiry.webp";
 import JuinCard from "../../SheaireComponent/JuinCard";
 import AddressConcatc from "./AddressConcatc";
+import ContactForm from "./ContactForm";
+import OnlineContact from "./OnlineContact";
+import ContactIntroduction from "./ContactIntroduction";
+import ContactOverview from "./ContactOverview";
 
 export default function Contact() {
   return (
@@ -22,8 +26,12 @@ export default function Contact() {
         </div>
       </div>
       <JuindCompany></JuindCompany>
+      <ContactOverview></ContactOverview>
       <AddressConcatc></AddressConcatc>
+      <ContactIntroduction></ContactIntroduction>
+      <ContactForm></ContactForm>
       <JuinCard></JuinCard>
+      <OnlineContact></OnlineContact>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import OurCompanys from "../About/OurCompanys";
 import Banner from "./Banner";
 import JuindCompany from "./JuindCompany";
 import Services from "./Services";
@@ -9,6 +10,7 @@ export default function Home() {
     <div>
       <Banner></Banner>
       <JuindCompany></JuindCompany>
+      <OurCompanys></OurCompanys>
       <Services></Services>
       <WeProvite></WeProvite>
       <Testimonial></Testimonial>

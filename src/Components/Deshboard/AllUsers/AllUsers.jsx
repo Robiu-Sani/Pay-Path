@@ -73,7 +73,7 @@ export default function AllUsers() {
               <p className="text-gradient">Action</p>
             </div>
           </div>
-          {users.map((item, idx) => (
+          {users?.map((item, idx) => (
             <div
               key={idx}
               className="w-full grid grid-cols-5 border border-[#ffd04e3b] rounded bg-gradient-bg"

@@ -1,40 +1,14 @@
 import JuindCompany from "../Home/JuindCompany";
 import image from "../../../image/history.png";
 import JuinCard from "../../SheaireComponent/JuinCard";
-import SerVicesSection from "./SerVicesSection";
-import services1 from "../../../image/carousel1.jpg";
-import services2 from "../../../image/carousel.jpg";
-import services3 from "../../../image/banner1.jpg";
-import services4 from "../../../image/carousel3.jpg";
+import PaymentProcessing from "./PaymentProcessing";
+import FraudProtection from "./FraudProtection";
+import RecurringBilling from "./RecurringBilling";
+import MobilePayments from "./MobilePayments";
+import AnalyticsReporting from "./AnalyticsReporting";
+import SeamlessIntegrations from "./SeamlessIntegrations";
 
 export default function Services() {
-  const servcesData = [
-    {
-      image: services1,
-      title: "This is title1",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis odit adipisci consequuntur numquam consequatur nostrum, quaerat ex dolorum minus voluptatum nihil aliquam. Tempora illum unde officia quisquam commodi dolorem praesentium, ducimus, labore excepturi illo et esse, temporibus maxime voluptatum amet omnis! Cumque soluta, asperiores illum mollitia nostrum voluptatibus pariatur.",
-    },
-    {
-      image: services2,
-      title: "This is title2",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis odit adipisci consequuntur numquam consequatur nostrum, quaerat ex dolorum minus voluptatum nihil aliquam. Tempora illum unde officia quisquam commodi dolorem praesentium, ducimus, labore excepturi illo et esse, temporibus maxime voluptatum amet omnis! Cumque soluta, asperiores illum mollitia nostrum voluptatibus pariatur.",
-    },
-    {
-      image: services3,
-      title: "This is title3",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis odit adipisci consequuntur numquam consequatur nostrum, quaerat ex dolorum minus voluptatum nihil aliquam. Tempora illum unde officia quisquam commodi dolorem praesentium, ducimus, labore excepturi illo et esse, temporibus maxime voluptatum amet omnis! Cumque soluta, asperiores illum mollitia nostrum voluptatibus pariatur.",
-    },
-    {
-      image: services4,
-      title: "This is title4",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis odit adipisci consequuntur numquam consequatur nostrum, quaerat ex dolorum minus voluptatum nihil aliquam. Tempora illum unde officia quisquam commodi dolorem praesentium, ducimus, labore excepturi illo et esse, temporibus maxime voluptatum amet omnis! Cumque soluta, asperiores illum mollitia nostrum voluptatibus pariatur.",
-    },
-    {
-      image: "",
-      title: "",
-      desc: "",
-    },
-  ];
   return (
     <div className="w-full">
       <div className="w-full px-2 py-20 flex justify-around items-center flex-col-reverse sm:flex-row bg-gradient-bg min-h-[500px]">
@@ -53,18 +27,12 @@ export default function Services() {
         </div>
       </div>
       <JuindCompany></JuindCompany>
-      <h1 className="text-center my-7 text-4xl uppercase font-extrabold">
-        Our services
-      </h1>
-      {servcesData.map((item, idx) => (
-        <SerVicesSection
-          key={idx}
-          image={item.image}
-          title={item.title}
-          desc={item.desc}
-        />
-      ))}
-
+      <PaymentProcessing></PaymentProcessing>
+      <FraudProtection></FraudProtection>
+      <RecurringBilling></RecurringBilling>
+      <MobilePayments></MobilePayments>
+      <AnalyticsReporting></AnalyticsReporting>
+      <SeamlessIntegrations></SeamlessIntegrations>
       <JuinCard></JuinCard>
     </div>
   );
