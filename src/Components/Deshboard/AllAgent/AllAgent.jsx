@@ -3,6 +3,7 @@ import DeshboardBAnner from "../../SheaireComponent/DeshboardBAnner";
 
 export default function AllAgent() {
   const { users } = useUsers();
+  const agents = users.filter((item) => item.status === "agent");
 
   return (
     <div className="w-full !scrollNone overflow-y-auto  max-h-[calc(100vh-50px)] p-4">
@@ -23,10 +24,10 @@ export default function AllAgent() {
               <p className="text-gradient">Number</p>
             </div>
           </div>
-          {users?.map((item, idx) => (
+          {agents?.map((item, idx) => (
             <div
               key={idx}
-              className="w-full grid grid-cols-5 border border-[#ffd04e3b] rounded bg-gradient-bg"
+              className="w-full grid grid-cols-3 border border-[#ffd04e3b] rounded bg-gradient-bg"
             >
               <div className="w-full border-r border-[#cfb46b3b] p-3 flex justify-center items-center bg-none ">
                 {" "}

@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import useAxiosSource from "../../CustomHooks/useAxiousSorce";
 
 export default function SendmoneyForm() {
   const [callNext, setCallNext] = useState(false);
+  const userEmail = localStorage.getItem("UserLogedIn");
+  const { axiosSource } = useAxiosSource();
   const {
     register,
     handleSubmit,
@@ -11,9 +14,17 @@ export default function SendmoneyForm() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const information = {
+      ...data,
+      email: userEmail,
+      type: "Send money",
+      pin: "**********", // Add the pin in the object
+    };
+
+    console.log(information);
     reset();
     setCallNext(false);
+    axiosSource.patch(`/sendMoney/${data.number}`, information);
   };
 
   return (
