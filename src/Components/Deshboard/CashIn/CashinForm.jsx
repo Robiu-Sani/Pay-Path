@@ -22,13 +22,13 @@ export default function CashinForm() {
         email: userEmail,
         type: "Cash-In",
         date: new Date().toLocaleDateString(),
-        pin: "**********", // Mask the pin for logging
+        pin: "**********",
       };
 
       console.log(information);
 
       axiosSource
-        .patch(`/cashIn`, information)
+        .post(`/cashIn`, information)
         .then((res) => {
           console.log(res);
           Swal.fire({

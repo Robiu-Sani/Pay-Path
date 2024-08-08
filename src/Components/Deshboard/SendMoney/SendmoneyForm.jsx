@@ -22,7 +22,7 @@ export default function SendmoneyForm() {
         email: userEmail,
         type: "Send money",
         date: new Date().toLocaleDateString(),
-        pin: "**********", // Mask the pin for logging
+        pin: "**********",
       };
 
       console.log(information);

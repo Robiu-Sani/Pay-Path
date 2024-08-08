@@ -19,6 +19,7 @@ import About from "../MainComponent/About/About";
 import Services from "../MainComponent/Services/Services";
 import Contact from "../MainComponent/Contact/Contact";
 import AllAgent from "../Deshboard/AllAgent/AllAgent";
+import CashInRequest from "../Deshboard/CashInRequest/CashInRequest";
 
 export const router = createBrowserRouter([
   {
@@ -131,6 +132,14 @@ export const router = createBrowserRouter([
         element: (
           <Private>
             <AllAgent></AllAgent>
+          </Private>
+        ),
+      },
+      {
+        path: "/cashinRequest",
+        element: (
+          <Private>
+            <CashInRequest></CashInRequest>
           </Private>
         ),
       },
