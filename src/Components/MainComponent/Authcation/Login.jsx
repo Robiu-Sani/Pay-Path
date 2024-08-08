@@ -1,10 +1,13 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAxiosSource from "../../CustomHooks/useAxiousSorce";
+import Swal from "sweetalert2";
+// import { useState } from "react";
 
 export default function Login() {
   const { axiosSource } = useAxiosSource();
   const navigate = useNavigate();
+  // const [pin, setPin] = useState();
 
   const {
     register,
@@ -14,13 +17,21 @@ export default function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
+    // setPin(data.password);
     axiosSource
       .post("/login", data)
       .then((result) => {
         localStorage.setItem("UserLogedIn", result.data.email);
+        localStorage.setItem("userPin", data.password);
         reset();
-        navigate(location.state ? location.state : "/DeshboardHome");
         console.log(result.data);
+        Swal.fire({
+          icon: "success",
+          title: "Logged in Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(location.state ? location.state : "/DeshboardHome");
       })
       .catch((err) => console.log(err));
   };
@@ -53,6 +64,7 @@ export default function Login() {
         )}
       </div>
 
+      {/* Pin field */}
       <div className="w-full">
         <label className="block w-full text-sm font-medium text-gradient">
           Enter 5-Digit Pin
@@ -75,13 +87,13 @@ export default function Login() {
 
       <button
         type="submit"
-        className="!w-full button !rounded-md bg-gradient-bg border-1 border-[#00f7ffa1]"
+        className="!w-full button !rounded-md bg-gradient-bg border-1 border-[#00f7ffa1] relative"
       >
         <span className="absolute text-gradient">Login</span>
       </button>
       <div className="w-full">
         <small className="text-gradient">
-          I don`t have any account!{" "}
+          I don`t have an account!{" "}
           <Link className="font-bold underline" to="/signup">
             Signup
           </Link>

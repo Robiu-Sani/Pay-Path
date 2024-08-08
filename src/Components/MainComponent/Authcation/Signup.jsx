@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAxiosSource from "../../CustomHooks/useAxiousSorce";
+import Swal from "sweetalert2";
 // import Cookies from "js-cookie";
 
 export default function Signup() {
@@ -21,9 +22,16 @@ export default function Signup() {
       .then((result) => {
         // Cookies.set("token", result.data.token, { expires: 1 / 24 });
         localStorage.setItem("UserLogedIn", result.data.email);
+        localStorage.setItem("userPin", result.data.password);
         reset();
         navigate(location.state ? location.state : "/DeshboardHome");
         console.log(result.data);
+        Swal.fire({
+          icon: "success",
+          title: "Sign-in Seccessfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((err) => console.log(err));
   };

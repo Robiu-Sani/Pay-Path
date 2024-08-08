@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import logout from "../../../image/logout.png";
 import Cookies from "js-cookie";
+import Swal from "sweetalert2";
 
 export default function LogOut() {
   const navigate = useNavigate();
@@ -8,7 +9,14 @@ export default function LogOut() {
   const HandleLogOut = async () => {
     Cookies.remove("token");
     localStorage.removeItem("UserLogedIn");
+    localStorage.removeItem("userPin");
     navigate("/");
+    Swal.fire({
+      icon: "success",
+      title: "LogOut Seccessfully",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   return (

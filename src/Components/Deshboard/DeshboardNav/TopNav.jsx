@@ -3,12 +3,21 @@ import { FaHistory } from "react-icons/fa";
 import { MdArrowBack, MdWorkHistory } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import useLogedUser from "../../CustomHooks/useLogedUser";
+import useGetHistory from "../../CustomHooks/useGetHistory";
+import useUsers from "../../CustomHooks/useUsers";
 
 export default function TopNav() {
   const [callHistory, setCallHistory] = useState(false);
   const [checkBalance, setCheckBalance] = useState(false);
   const { logedUser } = useLogedUser();
+  const { history } = useGetHistory();
+  const { users } = useUsers();
+  const LogedUser = localStorage.getItem("UserLogedIn");
+  const userHistory = history.filter(
+    (item) => item.email == LogedUser || item.number == users.number
+  );
   const navigate = useNavigate();
+
   return (
     <div className="w-full  p-3 bg-gradient-bg flex justify-between items-center border-[#cfb46b85] border-b">
       <span className="text-gradient ml-7 font-bold">Pay Path</span>
@@ -45,7 +54,22 @@ export default function TopNav() {
       >
         <div className="w-full border-[#cfb46b85] border-b p-2 flex justify-start items-center">
           <FaHistory className="text-[#cfb56b] text-xl mr-3" />
-          <span className="text-gradient font-bold">History</span>
+          <span className="text-gradient font-bold">Short History</span>
+        </div>
+        <div className="w-full h-full px-2 py-3 overflow-y-auto">
+          {userHistory?.map((item, idx) => (
+            <div
+              key={idx}
+              className="w-full mb-2 border-[#cfb46b85] border-b grid grid-cols-2 p-2"
+            >
+              <div className="w-full flex justify-center items-center text-gradient">
+                {item.type} =
+              </div>
+              <div className="w-full flex justify-center items-center text-gradient">
+                {item.amount}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import useAxiosSource from "../../CustomHooks/useAxiousSorce";
+import Swal from "sweetalert2";
 
 export default function CashoutForm() {
   const [callNext, setCallNext] = useState(false);
+  const userEmail = localStorage.getItem("UserLogedIn");
+  const userPin = localStorage.getItem("userPin");
+  const { axiosSource } = useAxiosSource();
   const {
     register,
     handleSubmit,
@@ -11,9 +16,46 @@ export default function CashoutForm() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    reset();
-    setCallNext(false);
+    if (userPin === data.pin) {
+      const information = {
+        ...data,
+        email: userEmail,
+        type: "Cash-Out",
+        date: new Date().toLocaleDateString(),
+        pin: "**********", // Mask the pin for logging
+      };
+
+      console.log(information);
+
+      axiosSource
+        .patch(`/sendMoney/${data.number}`, information)
+        .then((res) => {
+          console.log(res);
+          Swal.fire({
+            icon: "success",
+            title: "Cash out successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          reset();
+          setCallNext(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: '<a href="#">Why do I have this issue?</a>',
+          });
+        });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Pin",
+        text: "The pin you entered is incorrect. Please try again.",
+      });
+    }
   };
 
   return (
