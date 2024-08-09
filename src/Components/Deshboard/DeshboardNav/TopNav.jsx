@@ -26,7 +26,7 @@ export default function TopNav() {
         className="w-[150px] cursor-pointer h-[25px] relative bg-gradient-bg border-[#cfb46b85] border rounded-full overflow-hidden flex justify-center items-center"
       >
         <span className="text-gradient font-bold">
-          {logedUser ? logedUser.balance : "00"}.00
+          {logedUser ? logedUser.balance : "00"}
         </span>
         <div
           className={`w-full h-full rounded-full absolute top-0 ${

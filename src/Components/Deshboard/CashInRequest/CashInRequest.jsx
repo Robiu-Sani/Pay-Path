@@ -26,7 +26,10 @@ export default function CashInRequest() {
   const exceptRequest = (id) => {
     refetch();
     axiosSource
-      .delete(`/removeCashIn/${id}`)
+      .post(
+        `/AddCashIn/${id}`,
+        cashin_request.filter((item) => item._id === id)
+      )
       .then((result) => console.log(result))
       .then((err) => console.log(err));
   };

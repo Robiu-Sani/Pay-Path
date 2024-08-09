@@ -1,12 +1,15 @@
 import Swal from "sweetalert2";
 import useUsers from "../../CustomHooks/useUsers";
 import DeshboardBAnner from "../../SheaireComponent/DeshboardBAnner";
-import { MdAutoDelete, MdDelete } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+import { FaMagento } from "react-icons/fa";
+import useAxiosSource from "../../CustomHooks/useAxiousSorce";
 
 export default function AllUsers() {
-  const { users } = useUsers();
+  const { users, refetch } = useUsers();
+  const { axiosSource } = useAxiosSource();
 
-  const handleDeleteuser = () => {
+  const handleDeleteuser = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -17,31 +20,45 @@ export default function AllUsers() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success",
-        });
+        axiosSource
+          .delete(`/users/:${id}`)
+          .then(
+            (res) => console.log(res),
+            refetch(),
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            })
+          )
+          .then((err) => console.log(err));
       }
     });
   };
 
-  const handleBlockuser = () => {
+  const handleBlockuser = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You yoou can solve this any time!",
-      icon: "warning",
+      icon: "success",
       showCancelButton: true,
-      confirmButtonColor: "#ff9d4e",
-      cancelButtonColor: "#3085d6",
-      confirmButtonText: "Yes, block it!",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#ff9d4e",
+      confirmButtonText: "Yes, Make it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Blocked!",
-          text: "Your file has been blocked.",
-          icon: "success",
-        });
+        axiosSource
+          .patch(`/users/:${id}`)
+          .then(
+            (res) => console.log(res),
+            refetch(),
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            })
+          )
+          .then((err) => console.log(err));
       }
     });
   };
@@ -96,14 +113,14 @@ export default function AllUsers() {
               </div>
               <div className="w-full grid grid-cols-2 bg-none ">
                 <div className="w-full flex border-r border-[#cfb46b3b] justify-center items-center bg-none">
-                  <MdAutoDelete
-                    onClick={handleBlockuser}
+                  <FaMagento
+                    onClick={() => handleBlockuser(item._id)}
                     className="text-[#ca8f37] text-xl cursor-pointer"
                   />
                 </div>
                 <div className="w-full flex justify-center items-center bg-none">
                   <MdDelete
-                    onClick={handleDeleteuser}
+                    onClick={() => handleDeleteuser(item._id)}
                     className="text-[#fd19199c] text-2xl cursor-pointer"
                   />
                 </div>

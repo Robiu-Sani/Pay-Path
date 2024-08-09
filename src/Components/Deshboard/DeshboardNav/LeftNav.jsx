@@ -4,9 +4,11 @@ import { FaBalanceScale, FaCcMastercard, FaHome } from "react-icons/fa";
 import { GiCash, GiMoneyStack, GiTakeMyMoney } from "react-icons/gi";
 import { MdOutlineHistoryEdu, MdRequestPage } from "react-icons/md";
 import { FaUsersBetweenLines, FaUsersLine } from "react-icons/fa6";
+import useLogedUser from "../../CustomHooks/useLogedUser";
 
 export default function LeftNav() {
   const navigate = useNavigate();
+  const { logedUser } = useLogedUser();
   return (
     <div className="w-full relative h-full py-5 flex flex-col items-center">
       <div className="w-full">
@@ -72,20 +74,25 @@ export default function LeftNav() {
           <FaUsersLine className="text-[#cfb56b]" />
           All Agents
         </button>
-        <button
-          onClick={() => navigate("/cashinRequest")}
-          className="flex hover:pl-4 justify-start items-center gap-2 font-bold p-2 border text-left text-md rounded-md border-[#cfb46b1e] mb-1 w-full text-gradient "
-        >
-          <MdRequestPage className="text-[#cfb56b]" />
-          Agent Request
-        </button>
-        <button
-          onClick={() => navigate("/Allusers")}
-          className="flex hover:pl-4 mb-20 justify-start items-center gap-2 font-bold p-2 border text-left text-md rounded-md border-[#cfb46b1e] w-full text-gradient "
-        >
-          <FaUsersBetweenLines className="text-[#cfb56b]" />
-          All Users
-        </button>
+        {logedUser.starus == "agent" ? (
+          <button
+            onClick={() => navigate("/cashinRequest")}
+            className="flex hover:pl-4 justify-start items-center gap-2 font-bold p-2 border text-left text-md rounded-md border-[#cfb46b1e] mb-1 w-full text-gradient "
+          >
+            <MdRequestPage className="text-[#cfb56b]" />
+            Agent Request
+          </button>
+        ) : null}
+
+        {logedUser.starus == "admin" ? (
+          <button
+            onClick={() => navigate("/Allusers")}
+            className="flex hover:pl-4 mb-20 justify-start items-center gap-2 font-bold p-2 border text-left text-md rounded-md border-[#cfb46b1e] w-full text-gradient "
+          >
+            <FaUsersBetweenLines className="text-[#cfb56b]" />
+            All Users
+          </button>
+        ) : null}
       </div>
       <LogOut></LogOut>
     </div>
