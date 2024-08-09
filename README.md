@@ -1,27 +1,28 @@
-Your full name
+<img src="/src/image/bannerImage.png" />
+admin name
 Admin
-Your email
+email
 admin@gmail.com
-Your number
+number
 01111111111
-Enter 5-Digit Pin
+5-Digit Pin
 00000
 
 
-Your full name
+agent name
 Agent
-Your email
+email
 agent@gmail.com
-Your number
+number
 00000000001
-Enter 5-Digit Pin
+5-Digit Pin
 11111
 
-Your full name
+agent name
 Agent2
-Your email
+email
 agent2@gmail.com
-Your number
+number
 00000000002
-Enter 5-Digit Pin
+5-Digit Pin
 22222
