@@ -17,7 +17,6 @@ export default function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
-    // setPin(data.password);
     axiosSource
       .post("/login", data)
       .then((result) => {
@@ -33,7 +32,14 @@ export default function Login() {
         });
         navigate(location.state ? location.state : "/DeshboardHome");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.error(err); // Log the error to the console
+        Swal.fire({
+          icon: "error",
+          title: "Something went wrong",
+          text: err.message || "An unexpected error occurred.",
+        });
+      });
   };
 
   return (
@@ -48,6 +54,7 @@ export default function Login() {
         <label className="block w-full text-sm font-medium text-gradient">
           Your email
         </label>
+
         <input
           type="email"
           className="w-full px-4 text-gradient py-2 bg-[rgba(0,0,0,0)] placeholder:text-[#cfb56b] border-0 outline-0 border-b border-[#fdc55d]"

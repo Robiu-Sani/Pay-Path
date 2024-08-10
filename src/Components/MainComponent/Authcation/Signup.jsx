@@ -33,7 +33,7 @@ export default function Signup() {
           timer: 1500,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err), Swal.fire("Something is worng here"));
   };
 
   return (

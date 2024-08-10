@@ -2,21 +2,24 @@ import { useState } from "react";
 import { FaHistory } from "react-icons/fa";
 import { MdArrowBack, MdWorkHistory } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import useLogedUser from "../../CustomHooks/useLogedUser";
+// import useLogedUser from "../../CustomHooks/useLogedUser";
 import useGetHistory from "../../CustomHooks/useGetHistory";
 import useUsers from "../../CustomHooks/useUsers";
 
 export default function TopNav() {
   const [callHistory, setCallHistory] = useState(false);
   const [checkBalance, setCheckBalance] = useState(false);
-  const { logedUser } = useLogedUser();
+  // const { logedUser } = useLogedUser();
   const { history } = useGetHistory();
   const { users } = useUsers();
   const LogedUser = localStorage.getItem("UserLogedIn");
   const userHistory = history.filter(
     (item) => item.email == LogedUser || item.number == users.number
   );
+  const logedUser = users.find((item) => item.email == LogedUser);
   const navigate = useNavigate();
+  console.log(logedUser.balance);
+  console.log(logedUser);
 
   return (
     <div className="w-full  p-3 bg-gradient-bg flex justify-between items-center border-[#cfb46b85] border-b">
@@ -25,9 +28,7 @@ export default function TopNav() {
         onClick={() => setCheckBalance(!checkBalance)}
         className="w-[150px] cursor-pointer h-[25px] relative bg-gradient-bg border-[#cfb46b85] border rounded-full overflow-hidden flex justify-center items-center"
       >
-        <span className="text-gradient font-bold">
-          {logedUser ? logedUser.balance : "00"}
-        </span>
+        <span className="text-gradient font-bold">{logedUser.balance}</span>
         <div
           className={`w-full h-full rounded-full absolute top-0 ${
             checkBalance ? "-left-[125px]" : "left-0"
