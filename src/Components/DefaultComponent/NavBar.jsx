@@ -22,7 +22,7 @@ export default function NavBar() {
   );
 
   return (
-    <div className="w-full fixed z-[9999]">
+    <div className="w-full absolute top-0 z-[9999]">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

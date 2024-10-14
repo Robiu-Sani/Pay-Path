@@ -48,7 +48,7 @@ export default function WeProvide() {
   ];
 
   return (
-    <div className="container mx-auto px-2 py-10">
+    <div className="container overflow-hidden mx-auto px-2 py-10">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="w-full flex-col-reverse flex sm:flex-row">
           <div className="w-full sm:w-1/2 flex justify-center items-end">
