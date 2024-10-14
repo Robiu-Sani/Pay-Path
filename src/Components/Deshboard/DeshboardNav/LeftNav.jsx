@@ -1,14 +1,33 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import LogOut from "../../MainComponent/Authcation/LogOut";
 import { FaBalanceScale, FaCcMastercard, FaHome } from "react-icons/fa";
 import { GiCash, GiMoneyStack, GiTakeMyMoney } from "react-icons/gi";
 import { MdOutlineHistoryEdu, MdRequestPage } from "react-icons/md";
 import { FaUsersBetweenLines, FaUsersLine } from "react-icons/fa6";
-import useLogedUser from "../../CustomHooks/useLogedUser";
+import useAxiosSource from "../../CustomHooks/useAxiousSorce";
 
 export default function LeftNav() {
+  const [logedUser, setLogedUser] = useState(null); // Initializing with null
   const navigate = useNavigate();
-  const { logedUser } = useLogedUser();
+  const { axiosSource } = useAxiosSource();
+  const userLogedIn = localStorage.getItem("UserLogedIn");
+
+  // Fetch user data based on logged-in email
+  useEffect(() => {
+    if (userLogedIn) {
+      axiosSource
+        .get(`/useremail/${userLogedIn}`)
+        .then((result) => setLogedUser(result.data))
+        .catch((error) => console.error("Error fetching user data:", error));
+    }
+  }, [userLogedIn, axiosSource]);
+
+  // If the user data is not yet loaded, we can show a loader or return null
+  if (!logedUser) {
+    return <div>Loading...</div>; // Optional loader during fetch
+  }
+
   return (
     <div className="w-full relative h-full py-5 flex flex-col items-center">
       <div className="w-full">
@@ -74,7 +93,8 @@ export default function LeftNav() {
           <FaUsersLine className="text-[#cfb56b]" />
           All Agents
         </button>
-        {logedUser.starus == "agent" ? (
+        {/* Conditional rendering for agent */}
+        {logedUser.status === "agent" && (
           <button
             onClick={() => navigate("/cashinRequest")}
             className="flex hover:pl-4 justify-start items-center gap-2 font-bold p-2 border text-left text-md rounded-md border-[#cfb46b1e] mb-1 w-full text-gradient "
@@ -82,9 +102,9 @@ export default function LeftNav() {
             <MdRequestPage className="text-[#cfb56b]" />
             Agent Request
           </button>
-        ) : null}
-
-        {logedUser.starus == "admin" ? (
+        )}
+        {/* Conditional rendering for admin */}
+        {logedUser.status === "admin" && (
           <button
             onClick={() => navigate("/Allusers")}
             className="flex hover:pl-4 mb-20 justify-start items-center gap-2 font-bold p-2 border text-left text-md rounded-md border-[#cfb46b1e] w-full text-gradient "
@@ -92,9 +112,9 @@ export default function LeftNav() {
             <FaUsersBetweenLines className="text-[#cfb56b]" />
             All Users
           </button>
-        ) : null}
+        )}
       </div>
-      <LogOut></LogOut>
+      <LogOut />
     </div>
   );
 }

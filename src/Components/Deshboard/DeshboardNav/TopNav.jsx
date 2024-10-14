@@ -10,29 +10,35 @@ export default function TopNav() {
   const [callHistory, setCallHistory] = useState(false);
   const [checkBalance, setCheckBalance] = useState(false);
   // const { logedUser } = useLogedUser();
+  const navigate = useNavigate();
   const { history } = useGetHistory();
   const { users } = useUsers();
   const LogedUser = localStorage.getItem("UserLogedIn");
-  const userHistory = history.filter(
-    (item) => item.email == LogedUser || item.number == users.number
-  );
-  const logedUser = users.find((item) => item.email == LogedUser);
-  const navigate = useNavigate();
-  console.log(logedUser.balance);
-  console.log(logedUser);
+
+  // Ensure logedUser exists before using it
+  const logedUser = users.find((item) => item.email === LogedUser);
+
+  // Handle cases where logedUser is not found
+  const userHistory = logedUser
+    ? history.filter(
+        (item) => item.email === LogedUser || item.number === logedUser.number
+      )
+    : [];
 
   return (
-    <div className="w-full  p-3 bg-gradient-bg flex justify-between items-center border-[#cfb46b85] border-b">
+    <div className="w-full p-3 bg-gradient-bg flex justify-between items-center border-[#cfb46b85] border-b">
       <span className="text-gradient ml-7 font-bold">Pay Path</span>
       <div
         onClick={() => setCheckBalance(!checkBalance)}
         className="w-[150px] cursor-pointer h-[25px] relative bg-gradient-bg border-[#cfb46b85] border rounded-full overflow-hidden flex justify-center items-center"
       >
-        <span className="text-gradient font-bold">{logedUser.balance}</span>
+        <span className="text-gradient font-bold">
+          {logedUser?.balance || "N/A"}
+        </span>
         <div
           className={`w-full h-full rounded-full absolute top-0 ${
             checkBalance ? "-left-[125px]" : "left-0"
-          }  bg-gradient-bg flex justify-center items-center`}
+          } bg-gradient-bg flex justify-center items-center`}
         >
           <span className="text-gradient font-bold">Balance</span>
           <div className="w-[19px] h-[19px] rounded-full bg-[#cfb56b] absolute right-[2px]"></div>
@@ -49,7 +55,7 @@ export default function TopNav() {
         />
       </div>
       <div
-        className={`w-[calc(100%-16px)] rounded-md bg-gradient-bg overscroll-y-auto border-[#cfb46b85]  z-20 sm:w-[400px] h-[calc(100vh-68px)] border absolute top-[60px] ${
+        className={`w-[calc(100%-16px)] rounded-md bg-gradient-bg overscroll-y-auto border-[#cfb46b85] z-20 sm:w-[400px] h-[calc(100vh-68px)] border absolute top-[60px] ${
           callHistory ? "right-2" : "-right-[105%]"
         }`}
       >
@@ -58,19 +64,25 @@ export default function TopNav() {
           <span className="text-gradient font-bold">Short History</span>
         </div>
         <div className="w-full h-full px-2 py-3 overflow-y-auto">
-          {userHistory?.map((item, idx) => (
-            <div
-              key={idx}
-              className="w-full mb-2 border-[#cfb46b85] border-b grid grid-cols-2 p-2"
-            >
-              <div className="w-full flex justify-center items-center text-gradient">
-                {item.type} =
+          {userHistory.length > 0 ? (
+            userHistory.map((item, idx) => (
+              <div
+                key={idx}
+                className="w-full mb-2 border-[#cfb46b85] border-b grid grid-cols-2 p-2"
+              >
+                <div className="w-full flex justify-center items-center text-gradient">
+                  {item.type} =
+                </div>
+                <div className="w-full flex justify-center items-center text-gradient">
+                  {item.amount}
+                </div>
               </div>
-              <div className="w-full flex justify-center items-center text-gradient">
-                {item.amount}
-              </div>
+            ))
+          ) : (
+            <div className="w-full flex justify-center items-center text-gradient p-2">
+              No history available
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>
