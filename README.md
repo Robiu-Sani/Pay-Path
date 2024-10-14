@@ -6,28 +6,7 @@
 
 PayPath is a comprehensive payment processing application designed to simplify the management of transactions, user accounts, and agent activities. It offers a secure platform for cash-in operations, money transfers, and detailed transaction history tracking.
 
-## Admin Account Details
 
-- **Admin Name:** Admin
-- **Email:** admin@gmail.com
-- **Number:** 01111111111
-- **5-Digit Pin:** 00000
-
-## Agent Accounts Details
- 
-### Agent 1
-
-- **Name:** Agent
-- **Email:** agent@gmail.com
-- **Number:** 00000000001
-- **5-Digit Pin:** 11111
-
-### Agent 2
-
-- **Name:** Agent2
-- **Email:** agent2@gmail.com
-- **Number:** 00000000002
-- **5-Digit Pin:** 22222
 
 ## Key Features
 
